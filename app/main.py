@@ -26,3 +26,14 @@ def signup(data: Signup):
     conn.commit()
     conn.close()
     return {"message": "Thanks for signing up!"}
+
+# New API to get user count
+@app.get("/signup/count")
+def get_signup_count():
+    conn = sqlite3.connect("waitlist.db")
+    cur = conn.cursor()
+    cur.execute("CREATE TABLE IF NOT EXISTS waitlist(email TEXT, suggestion TEXT)")
+    cur.execute("SELECT COUNT(*) FROM waitlist")
+    count = cur.fetchone()[0]
+    conn.close()
+    return {"count": count}
