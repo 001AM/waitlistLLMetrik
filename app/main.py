@@ -1,13 +1,17 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
+import threading
+
+DB_NAME = "waitlist.db"
+db_lock = threading.Lock()  # prevent concurrent writes
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # allow your React app
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -17,23 +21,31 @@ class Signup(BaseModel):
     email: str
     suggestion: str | None = None
 
+# Create table only once
+def init_db():
+    with sqlite3.connect(DB_NAME, check_same_thread=False) as conn:
+        conn.execute("CREATE TABLE IF NOT EXISTS waitlist(email TEXT, suggestion TEXT)")
+
+@app.on_event("startup")
+def startup_event():
+    init_db()
+
 @app.post("/signup")
 def signup(data: Signup):
-    conn = sqlite3.connect("waitlist.db")
-    cur = conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS waitlist(email TEXT, suggestion TEXT)")
-    cur.execute("INSERT INTO waitlist VALUES (?, ?)", (data.email, data.suggestion))
-    conn.commit()
-    conn.close()
-    return {"message": "Thanks for signing up!"}
+    try:
+        with db_lock:
+            with sqlite3.connect(DB_NAME, check_same_thread=False) as conn:
+                conn.execute("INSERT INTO waitlist(email, suggestion) VALUES (?, ?)", (data.email, data.suggestion))
+        return {"message": "Thanks for signing up!"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
-# New API to get user count
 @app.get("/signup/count")
 def get_signup_count():
-    conn = sqlite3.connect("waitlist.db")
-    cur = conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS waitlist(email TEXT, suggestion TEXT)")
-    cur.execute("SELECT COUNT(*) FROM waitlist")
-    count = cur.fetchone()[0]
-    conn.close()
-    return {"count": count}
+    try:
+        with sqlite3.connect(DB_NAME, check_same_thread=False) as conn:
+            cur = conn.execute("SELECT COUNT(*) FROM waitlist")
+            count = cur.fetchone()[0]
+        return {"count": count}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
