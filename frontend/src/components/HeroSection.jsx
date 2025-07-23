@@ -3,6 +3,14 @@ import { Sparkles, Rocket, ArrowRight, BookOpen, Star, Users } from "lucide-reac
 import FloatingParticles from "@/components/FloatingParticles";
 
 const HeroSection = () => {
+  // Smooth scroll handler for Explore Features
+  const handleExploreFeaturesClick = (e) => {
+    e.preventDefault();
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -10,7 +18,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center py-24 px-4 text-center overflow-hidden">
+    <section className="relative max-h-dvh flex flex-col items-center justify-center py-16 px-4 text-center overflow-hidden">
       <div className="absolute inset-0 bg-gray-950/90" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -32,15 +40,24 @@ const HeroSection = () => {
           Complete observability suite with <span className="text-purple-300 font-semibold">traces, evaluations, prompt management, and analytics</span> to debug and improve your LLM applications.
         </p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-          <button className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out flex items-center justify-center gap-3">
+          <a
+            href="#features"
+            onClick={handleExploreFeaturesClick}
+            className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out flex items-center justify-center gap-3"
+          >
             <Rocket className="h-5 w-5" />
-            Get Started Free
+            Explore Features
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-full font-bold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out flex items-center justify-center gap-3">
+          </a>
+          <a
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" // Replace with your actual demo link
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-full font-bold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out flex items-center justify-center gap-3"
+          >
             <BookOpen className="h-5 w-5" />
-            View Documentation
-          </button>
+            Watch Our Demo
+          </a>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-400 text-base font-medium">
           <div className="flex items-center gap-3">

@@ -75,13 +75,13 @@ const WaitlistSection = () => {
         </div>
       </div>
 
-      {/* ...header removed... */}
-
       {/* Main Content */}
       <main className="flex flex-col items-center justify-center w-full max-w-xl text-center space-y-8">
         <img src={Logo} alt="Project Logo" className="mx-auto mb-8 w-32 h-32 rounded-2xl shadow-lg object-contain" />
         <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-2">Get early access</h1>
-        <p className="text-lg md:text-xl text-gray-300 mb-6">Be among the first to experience Wait and launch a viral waitlist. Sign up to be notified when we launch!</p>
+        <p className="text-lg md:text-xl text-gray-300 mb-6">
+          Be among the first to experience Wait and launch a viral waitlist. Sign up to be notified when we launch!
+        </p>
         <form className="flex flex-col md:flex-row items-center justify-center gap-3 w-full" onSubmit={handleSubmit}>
           <input
             type="email"
@@ -101,41 +101,49 @@ const WaitlistSection = () => {
         {submitted && (
           <div className="text-green-400 mt-2">Thank you! You'll be notified at launch.</div>
         )}
-        <div className="flex items-center justify-center gap-3 mt-6">
-          {avatars.map((src, i) => (
-            <img
-              key={i}
-              src={src}
-              alt="avatar"
-              className="w-10 h-10 rounded-full border-2 border-purple-600 shadow"
-            />
-          ))}
-          <span className="text-gray-200 font-medium ml-2">Join 10,000+ others on the waitlist</span>
+        {/* Creators links below form */}
+        <div className="my-8">
+          <span className="block text-base text-pink-300 font-semibold mb-4">Contact the creators:</span>
+          <div className="flex flex-row justify-center gap-4 mb-3">
+            <a href="mailto:0710tushar.2003@gmail.com" className="px-4 py-2 flex items-center gap-2 rounded-full font-medium transition glassy-btn border border-blue-300 text-blue-200 hover:border-blue-400 hover:text-blue-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 13.065L2 6.5V18a1 1 0 001 1h18a1 1 0 001-1V6.5l-10 6.565zm10-8.565A1 1 0 0021 4H3a1 1 0 00-1 1v.217l10 6.565 10-6.565V4.5z"/></svg>
+              0710tushar.2003@gmail.com
+            </a>
+            <a href="mailto:sohampanchal1469@gmail.com" className="px-4 py-2 flex items-center gap-2 rounded-full font-medium transition glassy-btn border border-pink-300 text-pink-200 hover:border-pink-400 hover:text-pink-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 13.065L2 6.5V18a1 1 0 001 1h18a1 1 0 001-1V6.5l-10 6.565zm10-8.565A1 1 0 0021 4H3a1 1 0 00-1 1v.217l10 6.565 10-6.565V4.5z"/></svg>
+              sohampanchal1469@gmail.com
+            </a>
+            <a href="mailto:sanedhruv1604@gmail.com" className="px-4 py-2 flex items-center gap-2 rounded-full font-medium transition glassy-btn border border-green-300 text-green-200 hover:border-green-400 hover:text-green-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 13.065L2 6.5V18a1 1 0 001 1h18a1 1 0 001-1V6.5l-10 6.565zm10-8.565A1 1 0 0021 4H3a1 1 0 00-1 1v.217l10 6.565 10-6.565V4.5z"/></svg>
+              sanedhruv1604@gmail.com
+            </a>
+          </div>
+          <div className="flex flex-row justify-center gap-4">
+            <a href="https://x.com/plasmovortex" target="_blank" rel="noopener noreferrer" className="px-4 py-2 flex items-center gap-2 rounded-full font-medium transition glassy-btn border border-blue-300 text-blue-200 hover:border-blue-400 hover:text-blue-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.47.7a4.3 4.3 0 001.88-2.37c-.83.5-1.75.87-2.72 1.07A4.28 4.28 0 0016.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.1.99C7.69 9.13 4.07 7.2 1.64 4.16c-.37.64-.58 1.38-.58 2.17 0 1.5.76 2.83 1.92 3.61-.71-.02-1.38-.22-1.97-.54v.05c0 2.1 1.5 3.85 3.5 4.25-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.68 2.11 2.9 3.97 2.93A8.6 8.6 0 012 19.54c-.29 0-.57-.02-.85-.06A12.13 12.13 0 007.29 21c7.55 0 11.69-6.26 11.69-11.69 0-.18-.01-.36-.02-.54A8.18 8.18 0 0024 5.5a8.2 8.2 0 01-2.36.65z"/></svg>
+              @plasmovortex
+            </a>
+            <a href="https://x.com/Soham0001AM" target="_blank" rel="noopener noreferrer" className="px-4 py-2 flex items-center gap-2 rounded-full font-medium transition glassy-btn border border-pink-300 text-pink-200 hover:border-pink-400 hover:text-pink-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.47.7a4.3 4.3 0 001.88-2.37c-.83.5-1.75.87-2.72 1.07A4.28 4.28 0 0016.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.1.99C7.69 9.13 4.07 7.2 1.64 4.16c-.37.64-.58 1.38-.58 2.17 0 1.5.76 2.83 1.92 3.61-.71-.02-1.38-.22-1.97-.54v.05c0 2.1 1.5 3.85 3.5 4.25-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.68 2.11 2.9 3.97 2.93A8.6 8.6 0 012 19.54c-.29 0-.57-.02-.85-.06A12.13 12.13 0 007.29 21c7.55 0 11.69-6.26 11.69-11.69 0-.18-.01-.36-.02-.54A8.18 8.18 0 0024 5.5a8.2 8.2 0 01-2.36.65z"/></svg>
+              @Soham0001AM
+            </a>
+            <a href="https://x.com/sane_dhruv" target="_blank" rel="noopener noreferrer" className="px-4 py-2 flex items-center gap-2 rounded-full font-medium transition glassy-btn border border-green-300 text-green-200 hover:border-green-400 hover:text-green-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.47.7a4.3 4.3 0 001.88-2.37c-.83.5-1.75.87-2.72 1.07A4.28 4.28 0 0016.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.1.99C7.69 9.13 4.07 7.2 1.64 4.16c-.37.64-.58 1.38-.58 2.17 0 1.5.76 2.83 1.92 3.61-.71-.02-1.38-.22-1.97-.54v.05c0 2.1 1.5 3.85 3.5 4.25-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.68 2.11 2.9 3.97 2.93A8.6 8.6 0 012 19.54c-.29 0-.57-.02-.85-.06A12.13 12.13 0 007.29 21c7.55 0 11.69-6.26 11.69-11.69 0-.18-.01-.36-.02-.54A8.18 8.18 0 0024 5.5a8.2 8.2 0 01-2.36.65z"/></svg>
+              @sane_dhruv
+            </a>
+          </div>
+      {/* Glassy button styles */}
+      <style>{`
+        .glassy-btn {
+          background: rgba(255,255,255,0.03);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
+          border: 1px solid rgba(255,255,255,0.10);
+        }
+      `}</style>
         </div>
       </main>
-
-      {/* Countdown Timer */}
-      <div className="flex flex-col items-center mt-12 mb-8">
-        <div className="grid grid-cols-4 gap-6 mb-2">
-          <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-bold text-purple-400">{pad(countdown.days)}</span>
-            <span className="text-gray-400 mt-1">Days</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-bold text-purple-400">{pad(countdown.hours)}</span>
-            <span className="text-gray-400 mt-1">Hours</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-bold text-purple-400">{pad(countdown.minutes)}</span>
-            <span className="text-gray-400 mt-1">Minutes</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-bold text-purple-400">{pad(countdown.seconds)}</span>
-            <span className="text-gray-400 mt-1">Seconds</span>
-          </div>
-        </div>
-        <span className="text-gray-300 text-sm">⏱ Left until full release</span>
-      </div>
 
       {/* Demo Video Section */}
       <div className="flex flex-col items-center w-full max-w-lg mb-12">

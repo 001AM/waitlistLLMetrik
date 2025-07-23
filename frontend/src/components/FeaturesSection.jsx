@@ -11,13 +11,17 @@ import { Zap, Database, ListChecks, MessageCircle, FolderOpen, BarChart, PlaySqu
 //   { icon: <PlaySquare className="h-8 w-8" />, title: "Playground", desc: "Interactive environment for experimentation and rapid prototyping.", color: "from-cyan-400 to-blue-500" },
 // ];
 
-const integrations = [
-  "Python SDK", "JS/TS SDK", "OpenAI SDK", "Langchain", "Llama-Index", "Litellm", "Dify", "Flowise", "Langflow", "Vercel AI SDK", "Instructor", "API"
+const llmModels = [
+  { name: "Anthropic", img: "/src/assets/anthropic.webp" },
+  { name: "ChatGPT", img: "/src/assets/chatgpt.png" },
+  { name: "Gemini", img: "/src/assets/gemini.webp" },
+  { name: "Langfuse", img: "/src/assets/langfuse.jpeg" },
+  { name: "Mistral", img: "/src/assets/mistral-color.png" },
 ];
 
 const FeaturesSection = () => {
   return (
-    <section className="py-24 px-4 bg-gray-950/90">
+    <section id="features" className="py-24 px-4 bg-gray-950/90">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Everything you need for LLM Engineering</h2>
@@ -122,11 +126,18 @@ const FeaturesSection = () => {
           {/* ...no placeholder, grid is now tight... */}
         </div>
         <div className="text-center">
-          <h3 className="text-3xl font-bold text-white mb-8">Seamless Integrations</h3>
-          <p className="text-gray-300 text-lg mb-8">Works with your existing stack</p>
-          <div className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
-            {integrations.map((integration) => (
-              <span key={integration} className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 text-purple-300 px-4 py-2 rounded-full text-sm font-semibold hover:from-purple-600/30 hover:to-pink-600/30 transition-all duration-200 transform hover:scale-105">{integration}</span>
+          <h3 className="text-3xl font-bold text-white mb-6">Supported LLM Models</h3>
+          <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
+            We seamlessly integrate with the industry's leading LLM providers, ensuring reliability, performance, and flexibility for your AI applications. Explore our supported models below:
+          </p>
+          <div className="flex flex-row gap-10 justify-center items-center max-w-5xl mx-auto">
+            {llmModels.map((model) => (
+              <div key={model.name} className="flex flex-col items-center w-28">
+                <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30 shadow-md">
+                  <img src={model.img} alt={model.name} className="object-contain w-16 h-16" />
+                </div>
+                <span className="text-purple-200 font-medium text-sm mt-2 whitespace-nowrap">{model.name}</span>
+              </div>
             ))}
           </div>
         </div>
