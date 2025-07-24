@@ -4,7 +4,7 @@ import { Zap, Database, ListChecks, MessageCircle, FolderOpen, BarChart, PlaySqu
 // Importing images (best practice)
 import tracingBg from "@/assets/tracing.png";
 import promptManagementBg from "@/assets/promptmanagment.png";
-import anthropicLogo from "@/assets/anthropic.webp";
+import anthropicLogo from "@/assets/anthropic.png";
 import chatgptLogo from "@/assets/chatgpt.png";
 import geminiLogo from "@/assets/gemini.webp";
 import mistralLogo from "@/assets/mistral-color.png";
