@@ -43,16 +43,23 @@ def startup_event():
     init_db()
 
 def send_email(recipient: str):
-    subject = "Welcome to LLM Observatory Waitlist 🎉"
+    subject = "You’re on the LLMetrik Waitlist – Welcome Aboard! 🚀"
+
     body = f"""
-    Hi there,
+        Hi there,
 
-    Thanks for joining the waitlist for our LLM Observatory Tool!
-    We're thrilled to have you on board and can't wait to share updates.
+        Thank you for signing up for the LLMetrik Analytics Tool waitlist!  
+        We’re excited to have you join a growing community of developers, researchers, and AI enthusiasts who want to gain deep insights into LLM performance and usage.
 
-    Stay tuned for something exciting. 🚀
+        What’s next?  
+        - You’ll be among the first to get early access as we roll out our private beta.  
+        - Expect exclusive updates, feature previews, and resources to help you get the most out of your LLM workflows.
 
-    - Team LLM Observatory
+        Stay tuned for exciting updates coming soon.  
+        We’re thrilled to have you on this journey with us!
+
+        Cheers,  
+        Team LLMetrik  
     """
     msg = MIMEMultipart()
     msg["From"] = EMAIL_SENDER
