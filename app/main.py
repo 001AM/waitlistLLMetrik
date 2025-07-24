@@ -46,21 +46,21 @@ def send_email(recipient: str):
     subject = "You’re on the LLMetrik Waitlist – Welcome Aboard! 🚀"
 
     body = f"""
-        Hi there,
+    Hi there,
 
-        Thank you for signing up for the LLMetrik Analytics Tool waitlist!  
-        We’re excited to have you join a growing community of developers, researchers, and AI enthusiasts who want to gain deep insights into LLM performance and usage.
+    Thank you for signing up for the LLMetrik Analytics Tool waitlist!  
+    We’re excited to have you join a growing community of developers, researchers, and AI enthusiasts who want to gain deep insights into LLM performance and usage.
 
-        What’s next?  
-        - You’ll be among the first to get early access as we roll out our private beta.  
-        - Expect exclusive updates, feature previews, and resources to help you get the most out of your LLM workflows.
+    What’s next?  
+    - You’ll be among the first to get early access as we roll out our private beta.  
+    - Expect exclusive updates, feature previews, and resources to help you get the most out of your LLM workflows.
 
-        Stay tuned for exciting updates coming soon.  
-        We’re thrilled to have you on this journey with us!
+    Stay tuned for exciting updates coming soon.  
+    We’re thrilled to have you on this journey with us!
 
-        Cheers,  
-        Team LLMetrik  
-    """
+    Cheers,  
+    Team LLMetrik  
+"""
     msg = MIMEMultipart()
     msg["From"] = EMAIL_SENDER
     msg["To"] = recipient
