@@ -60,7 +60,7 @@ def send_email(recipient: str):
 
     Cheers,  
     Team LLMetrik  
-"""
+    """
     msg = MIMEMultipart()
     msg["From"] = EMAIL_SENDER
     msg["To"] = recipient
